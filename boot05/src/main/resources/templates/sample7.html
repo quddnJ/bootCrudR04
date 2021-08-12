@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Thymeleaf3</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h3 th:text="${now}"></h3>
+	<!-- -->
+	<h3 th:text="${#numbers.formatInteger(price,3,'COMMA')}"></h3>
+	<h3 th:text="${#numbers.formatInteger(price,3,'POINT')}"></h3>
+	<h3 th:with="priceValue=11199.359583">
+		<p th:text="${#numbers.formatInteger(priceValue,3,'COMMA')}"></p>
+		<p th:text="${#numbers.formatDecimal(priceValue,5,10,'POINT')}"></p>
+	</h3>
+	<h3 th:text="${title}"></h3>
+	<span th:utext="${#strings.replace(title,'s','<b style=color:red>s</b>')}"></span>
+	<ul>
+		<li th:each="str:${#strings.listSplit(title,' ')}">[[${str}]]</li>
+	</ul>
+	<h3 th:text="${options}"></h3>
+</body>
+</html>
